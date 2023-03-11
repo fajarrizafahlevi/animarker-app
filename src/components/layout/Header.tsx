@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import Button from '../common/Button';
 import Input from '../common/Input';
 
-function Header() {
-  const [input, setInput] = useState<string>('');
+interface HeaderProps {
+  keywordValue: string;
+  onKeywordChange: (text: string) => void;
+}
 
+function Header(props: HeaderProps) {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    console.log(input);
+    console.log(props.keywordValue);
   }
 
   return (
@@ -27,8 +30,8 @@ function Header() {
             onSubmit={handleSubmit}
           >
             <Input
-              inputValue={input}
-              onInputChange={setInput}
+              inputValue={props.keywordValue}
+              onInputChange={props.onKeywordChange}
             />
             <Button type="submit" />
           </form>
