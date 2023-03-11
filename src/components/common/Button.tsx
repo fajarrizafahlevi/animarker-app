@@ -1,11 +1,15 @@
 import React from 'react';
 
-function Button() {
+interface ButtonProps {
+  type: 'button' | 'submit' | 'reset' | undefined;
+}
+
+function Button(props: ButtonProps) {
   return (
     <>
       <button
         className="btn btn-outline-success"
-        type="submit"
+        type={props.type}
       >
         Search
       </button>

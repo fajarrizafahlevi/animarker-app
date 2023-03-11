@@ -1,6 +1,15 @@
 import React from 'react';
 
-function Input() {
+interface InputProps {
+  inputValue: string;
+  onInputChange: (text: string) => void;
+}
+
+function Input(props: InputProps) {
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    props.onInputChange(event.target.value);
+  }
+
   return (
     <>
       <input
@@ -8,6 +17,8 @@ function Input() {
         type="search"
         placeholder="Search"
         aria-label="Search"
+        value={props.inputValue}
+        onChange={handleInputChange}
       />
     </>
   );
