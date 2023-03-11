@@ -5,13 +5,14 @@ import Input from '../common/Input';
 interface HeaderProps {
   keywordValue: string;
   onKeywordChange: (text: string) => void;
+  findAnime: (text: string) => void;
 }
 
 function Header(props: HeaderProps) {
   function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    console.log(props.keywordValue);
+    props.findAnime(props.keywordValue);
   }
 
   return (

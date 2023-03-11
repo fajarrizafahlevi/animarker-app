@@ -1,1 +1,1 @@
-export const BASE_URL = 'http://discord.jikan.moe';
+export const BASE_URL = 'https://api.jikan.moe/v4';
